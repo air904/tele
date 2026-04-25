@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Telegram 群組影片總覽</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Telegram 群組影片總覽</h1>
+      <p>手機 / 電腦自適配、帳號切換、影片預覽、大小篩選、關鍵字搜尋</p>
+    </header>
+
+    <main class="container">
+      <section class="controls card">
+        <label>
+          帳號
+          <select id="accountSelect"></select>
+        </label>
+
+        <label>
+          搜尋
+          <input id="searchInput" type="search" placeholder="搜尋群組名、檔名..." />
+        </label>
+
+        <label>
+          最小大小 (MB)
+          <input id="minSizeInput" type="number" min="0" step="1" value="0" />
+        </label>
+
+        <label>
+          最大大小 (MB)
+          <input id="maxSizeInput" type="number" min="0" step="1" value="1000" />
+        </label>
+      </section>
+
+      <section class="list card">
+        <div class="list-header">
+          <h2>影片清單（由新到舊）</h2>
+          <span id="countText"></span>
+        </div>
+        <div id="videoList" class="video-grid"></div>
+      </section>
+    </main>
+
+    <template id="videoCardTemplate">
+      <article class="video-card">
+        <img class="thumb" alt="影片預覽" />
+        <div class="meta">
+          <h3 class="name"></h3>
+          <p class="group"></p>
+          <p class="info"></p>
+          <p class="date"></p>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
